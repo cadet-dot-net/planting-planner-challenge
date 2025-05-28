@@ -18,7 +18,9 @@ defmodule Planter.Place do
 
   """
   def list_beds do
-    Repo.all(Bed)
+    Bed
+    |> Repo.all()
+    |> Repo.preload(:plants)
   end
 
   @doc """

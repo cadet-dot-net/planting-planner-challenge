@@ -41,7 +41,9 @@ defmodule Planter.Garden do
 
   """
   def list_plans(%Scope{} = scope) do
-    Repo.all(from plan in Plan, where: plan.user_id == ^scope.user.id)
+    (from plan in Plan, where: plan.user_id == ^scope.user.id)
+    |> Repo.all()
+    |> Repo.preload([:bed, :plant])
   end
 
   @doc """
