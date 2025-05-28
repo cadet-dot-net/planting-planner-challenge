@@ -8,6 +8,7 @@ defmodule Planter.Place.Bed do
     field :width, :integer
     field :length, :integer
     field :soil_type, :string
+    has_many :plants, Planter.Plant.Vegetable
 
     timestamps(type: :utc_datetime)
   end

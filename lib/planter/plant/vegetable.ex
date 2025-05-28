@@ -6,7 +6,7 @@ defmodule Planter.Plant.Vegetable do
     field :name, :string
     field :soil_types, {:array, :string}
     field :benefits_from, {:array, :string}
-    field :bed_id, :id
+    belongs_to :bed, Planter.Place.Bed
 
     timestamps(type: :utc_datetime)
   end
