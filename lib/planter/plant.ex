@@ -28,14 +28,14 @@ defmodule Planter.Plant do
 
   ## Examples
 
-      iex> get_vegetable!(123)
+      iex> get_vegetable!("onion")
       %Vegetable{}
 
       iex> get_vegetable!(456)
       ** (Ecto.NoResultsError)
 
   """
-  def get_vegetable!(id), do: Repo.get!(Vegetable, id)
+  def get_vegetable!(name), do: Repo.get_by!(Vegetable, name: name)
 
   @doc """
   Creates a vegetable.
