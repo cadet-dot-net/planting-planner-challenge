@@ -15,7 +15,8 @@ defmodule Planter.Application do
       # Start a worker by calling: Planter.Worker.start_link(arg)
       # {Planter.Worker, arg},
       # Start to serve requests, typically the last entry
-      PlanterWeb.Endpoint
+      PlanterWeb.Endpoint,
+      Planter.Knowledge.Supervisor
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html
