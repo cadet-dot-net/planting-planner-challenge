@@ -5,8 +5,8 @@ defmodule Planter.Place.Bed do
   schema "beds" do
     field :x, :integer
     field :y, :integer
-    field :width, :integer
-    field :length, :integer
+    field :width, :float
+    field :length, :float
     field :soil_type, :string
     has_many :plants, Planter.Plant.Vegetable
 

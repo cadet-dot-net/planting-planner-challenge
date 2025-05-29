@@ -3,7 +3,7 @@ defmodule Planter.Garden.Plan do
   import Ecto.Changeset
 
   schema "plans" do
-    field :area, :integer
+    field :area, :float
     field :bed_id, :id
     field :plant_id, :id
     field :user_id, :id
