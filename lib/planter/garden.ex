@@ -39,7 +39,16 @@ defmodule Planter.Garden do
       iex> list_plans(scope)
       [%Plan{}, ...]
 
+      iex> list_plans()
+      [%Plan{}, ...]
+
   """
+  def list_plans() do
+    Plan
+    |> Repo.all()
+    |> Repo.preload([:bed, :plant])
+  end
+
   def list_plans(%Scope{} = scope) do
     (from plan in Plan, where: plan.user_id == ^scope.user.id)
     |> Repo.all()

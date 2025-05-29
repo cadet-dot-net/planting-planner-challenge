@@ -1,13 +1,19 @@
 defmodule PlanterWeb.PlanController do
   use PlanterWeb, :controller
 
+  alias Plug.Conn
   alias Planter.Garden
   alias Planter.Garden.Plan
 
   action_fallback PlanterWeb.FallbackController
 
+  def index(%Conn{assigns: %{current_scope: scope}} = conn, _params) do
+    plans = Garden.list_plans(scope)
+    render(conn, :index, plans: plans)
+  end
+
   def index(conn, _params) do
-    plans = Garden.list_plans(conn.assigns.current_scope)
+    plans = Garden.list_plans()
     render(conn, :index, plans: plans)
   end
 
