@@ -5,8 +5,8 @@ defmodule Planter.Repo.Migrations.CreateBeds do
     create table(:beds) do
       add :x, :integer
       add :y, :integer
-      add :width, :integer
-      add :length, :integer
+      add :width, :float
+      add :length, :float
       add :soil_type, :string
 
       timestamps(type: :utc_datetime)
