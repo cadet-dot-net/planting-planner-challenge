@@ -24,9 +24,14 @@ defmodule PlanterWeb.Router do
   end
 
   # Other scopes may use custom stacks.
-  # scope "/api", PlanterWeb do
-  #   pipe_through :api
-  # end
+  scope "/api", PlanterWeb do
+    pipe_through :api
+
+    get "/plans", PlanController, :index
+    get "/plans/:id", PlanController, :show
+    post "/plan/new", PlanController, :create
+    delete "/plans/:id", PlanController, :delete
+  end
 
   # Enable LiveDashboard and Swoosh mailbox preview in development
   if Application.compile_env(:planter, :dev_routes) do
