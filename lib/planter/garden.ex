@@ -73,6 +73,9 @@ defmodule Planter.Garden do
     Repo.get_by!(Plan, id: id, user_id: scope.user.id)
   end
 
+  def get_plan!(id) do
+    Repo.get!(Plan, id)
+  end
   @doc """
   Creates a plan.
 
