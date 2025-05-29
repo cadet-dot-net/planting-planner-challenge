@@ -16,5 +16,6 @@ defmodule Planter.Plant.Vegetable do
     vegetable
     |> cast(attrs, [:name, :soil_types, :benefits_from])
     |> validate_required([:name, :soil_types, :benefits_from])
+    |> unique_constraint(:name)
   end
 end
