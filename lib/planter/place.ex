@@ -39,6 +39,11 @@ defmodule Planter.Place do
   """
   def get_bed!(id), do: Repo.get!(Bed, id)
 
+  def get_bed_by_soil_type_area(soil_types, area) do
+    query = from b in Bed, where: b.width * b.length >= ^area and b.soil_type in ^soil_types
+
+    Repo.all(query) |> List.first()
+  end
   @doc """
   Creates a bed.
 
