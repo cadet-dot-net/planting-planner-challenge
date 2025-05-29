@@ -25,8 +25,8 @@ defmodule Planter.Knowledge do
   end
 
   defp update_or_store({name, attrs}) do
-    %{id: id} = Plant.get_vegetable!(name)
-    Plant.update_vegetable(id, attrs)
+    vegetable = Plant.get_vegetable!(name)
+    Plant.update_vegetable(vegetable, attrs)
   rescue
     _ ->
       attrs

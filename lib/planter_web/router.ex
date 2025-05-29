@@ -29,6 +29,7 @@ defmodule PlanterWeb.Router do
 
     get "/plans", PlanController, :index
     get "/plans/:id", PlanController, :show
+    get "/plans/:id/score", PlanController, :score
     post "/plan/new", PlanController, :create
     delete "/plans/:id", PlanController, :delete
 
