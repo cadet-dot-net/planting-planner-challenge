@@ -31,6 +31,11 @@ defmodule PlanterWeb.Router do
     get "/plans/:id", PlanController, :show
     post "/plan/new", PlanController, :create
     delete "/plans/:id", PlanController, :delete
+
+    get "/gardens", BedController, :index
+    get "/gardens/:id", BedController, :show
+    post "/garden/new", BedController, :create
+    delete "/garden/:id", BedController, :delete
   end
 
   # Enable LiveDashboard and Swoosh mailbox preview in development
